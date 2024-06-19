@@ -1,0 +1,69 @@
+ 
+ 
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+
+ 
+ 
+ <section  class="contact">
+        <div class="container">
+            <div class="row mb50">
+
+                <div class="sec-title text-center mb50 wow fadeInDown animated" >
+                    <h2>View Request</h2>
+                    <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+                </div>
+
+                
+
+               
+                <!-- end contact address -->
+
+                <!-- contact form -->
+                <div class="col-lg-12 col-md-8 col-sm-7 col-xs-12 wow fadeInDown animated" data-wow-duration="500ms"
+                    data-wow-delay="300ms">
+					
+                    <div class="contact-form">
+                        <table class="table" width="100%">
+						<tr>
+						<th>User Name</th>
+						<th>Description</th>
+						<th>Date</th>
+						
+						<th>Approve</th>
+						</tr>
+						{% for i in result %}
+						
+						<tr>
+						<td>{{i.user_id}}</td>
+						<td>{{i.description}}</td>
+						<td>{{i.date}}</td>
+						
+						<td><a href="{% url 'reqapprov' id=i.id %}" class="btn btn-success">Approved</a></td>
+						
+						</tr>
+						{% endfor %}
+						</table>
+                    </div>
+                </div>
+                <!-- end contact form -->
+
+              
+                <!-- end footer social links -->
+
+            </div>
+        </div>
+        </div>
+        </div>
+
+<br>
+<br><br>
+<br><br>
+        <!-- Google map -->
+        <!-- End Google map -->
+
+    </section>
+	
+   {% include 'footer.html' %}
+{% endblock %}

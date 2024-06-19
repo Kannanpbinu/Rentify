@@ -1,0 +1,73 @@
+
+
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+
+
+
+    <section id="works" class="works clearfix">
+        <div class="container">
+            <div class="row">
+
+                <div class="sec-title text-center">
+                    <h2>Products</h2>
+                    <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+                </div>
+
+                
+                <div class="work-filter wow fadeInRight animated" data-wow-duration="500ms">
+                    <ul class="text-center">
+					{% for lan in res %}
+					<li><a href="{% url 'typpe' id=lan.id %}">{{lan.type}}</a></li>
+
+					{% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="project-wrapper">
+					{% for i in result %}
+
+            <figure class="mix work-item branding">
+                <img src="../media/{{i.image}}" style="width:375px; height:300px;" alt="">
+				
+                <figcaption class="overlay">
+                  <!--  <a class="fancybox" rel="works" title="{{i.name}}" href="../media/{{i.image}}">-->
+					<!--<i class="fa fa-eye fa-lg">--></i></a>
+                    <h4>{{i.description}}</h4>
+                    <p>{{i.name}}</p>
+                    <h2>Rs{{i.price}}</h2>
+					<a href="{% url 'book' id=i.id %}" class="btn btn-info" style='width:200px; heigth:100px;'>Order</a>
+
+                </figcaption>
+
+            </figure>
+
+			
+					{% endfor %}
+
+    
+
+        </div>
+
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+    </section>
+
+    
+
+    <!--
+        End Contact Us
+        ==================================== -->
+
+
+   {% include 'footer.html' %}
+{% endblock %}

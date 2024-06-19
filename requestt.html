@@ -1,0 +1,83 @@
+
+{% load static %}
+{% block content %}
+{% include 'header1.html' %}
+
+ 
+ 
+ <section  class="contact">
+        <div class="container">
+            <div class="row mb50">
+
+                <div class="sec-title text-center mb50 wow fadeInDown animated" >
+                    <h2>Request</h2>
+                    <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+                </div>
+
+                
+
+               
+                <!-- end contact address -->
+
+                <!-- contact form -->
+                <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 wow fadeInDown animated" data-wow-duration="500ms"
+                    data-wow-delay="300ms">
+					
+                    <div class="contact-form">
+                        <form action="addrequest" method="POST">
+						{% csrf_token %}
+													<h2 style='color:red;'>{{status}}</h2>
+													<br><br>
+
+                            <div class="input-group name-email">
+                               
+                                <div class="input-field">
+                                    <select required name="tech_id" 
+                                        class="form-control">
+										<option disabled>Select</option>
+										{% for i in result1 %}
+										<option value='{{i.id}}'>{{i.name}}</option>
+										{% endfor %}
+										</select>
+                                </div>
+								 <div class="input-field">
+                                    <input type="date" required name="date"  placeholder="Email"
+                                        class="form-control">
+                                </div>
+							 
+                            </div>
+							 <div class="input-group name-email">
+                               
+								 <div class="input-field">
+                                    <input type='text'  required name="description"  placeholder="Description"
+                                        class="form-control">
+                                </div>
+							 
+                            </div>
+							 
+                            <div class="input-group">
+                                <input type="submit"  class="btn btn-success" value="Request">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- end contact form -->
+
+              
+                <!-- end footer social links -->
+
+            </div>
+        </div>
+        </div>
+        </div>
+
+<br>
+<br><br>
+<br><br>
+        <!-- Google map -->
+        <!-- End Google map -->
+
+    </section>
+	
+{% include 'footer.html' %}
+{% endblock %}
